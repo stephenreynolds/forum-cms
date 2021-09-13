@@ -1,0 +1,19 @@
+{
+  "name": "forum-cms",
+  "version": "1.0.0",
+  "description": "Free and open source forum system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenreynolds/forum-cms.git"
+  },
+  "author": "Stephen Reynolds (git@stephenreynolds.dev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenreynolds/forum-cms/issues"
+  },
+  "homepage": "https://github.com/stephenreynolds/forum-cms#readme"
+}
