@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import PostFeed from "./components/posts/post-feed";
+import PostFeed from "./posts/post-feed";
 
 const Routes = () => {
   return (
