@@ -43,8 +43,10 @@ const config = {
     })
   },
   devServer: {
-    stats: "minimal",
-    overlay: true,
+    client: {
+      logging: "warn",
+      overlay: true
+    },
     historyApiFallback: true,
     headers: { "Access-Control-Allow-Origin": "*" },
     https: false,
