@@ -1,7 +1,13 @@
-import PostFeed from "./posts/post-feed";
+import Routes from "../routes";
+import BaseStyles from "./baseStyles";
 
 const App = () => {
-  return <PostFeed />;
+  return (
+    <>
+      <BaseStyles />
+      <Routes />
+    </>
+  );
 };
 
 export default App;

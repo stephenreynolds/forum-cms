@@ -1,13 +1,13 @@
 import PostModel from "../../common/post";
+import PostHeader from "./post-header";
+import Card from "../layout/card";
 
 const Post = (post: PostModel) => {
   return (
-    <>
-      <h2>{post.title}</h2>
-      <h3>Author: {post.author}</h3>
-      <h3>Created on: {post.created.toLocaleDateString()}</h3>
+    <Card>
+      <PostHeader author={post.author} created={post.created} title={post.title} />
       <p>{post.content}</p>
-    </>
+    </Card>
   );
 };
 
