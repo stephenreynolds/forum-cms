@@ -27,6 +27,8 @@ const Container = styled.div`
   @media (min-width: 1400px) {
     max-width: 1320px;
   }
+
+  max-width: ${({maxWidth}) => maxWidth ? maxWidth : "auto"} !important;
 `;
 
 export default Container;
