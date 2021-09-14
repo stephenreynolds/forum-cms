@@ -1,5 +1,7 @@
+import PostFeed from "./posts/post-feed";
+
 const App = () => {
-  return <>Hello</>;
+  return <PostFeed />;
 };
 
 export default App;
