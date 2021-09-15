@@ -14,7 +14,7 @@ const Post = () => {
   useEffect(() => {
     setPost(getPostById(id));
     setLoading(false);
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <></>;
