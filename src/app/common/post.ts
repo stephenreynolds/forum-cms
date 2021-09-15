@@ -4,7 +4,7 @@ export default interface PostModel {
   authorId: string;
   created: Date;
   title: string;
-  content: string
+  content: string;
 }
 
 export interface PostCreateModel {
