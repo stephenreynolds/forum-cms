@@ -10,7 +10,10 @@ const PreviewLink = styled(Link)`
 `;
 
 const createPostLink = (id: string, title: string) => {
-  const titleText = title.toLowerCase().split(" ").join("_");
+  const titleText = title
+    .replace(/ /g, "_")
+    .replace(/[^a-zA-Z0-9-_]/g, "")
+    .toLowerCase();
   return `/posts/${id}/${titleText}`;
 };
 
