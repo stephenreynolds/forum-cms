@@ -12,6 +12,8 @@ export const getPosts = (): PostModel[] => {
       title: post.title,
       content: post.content
     };
+  }).sort((a, b) => {
+    return +b.created - +a.created;
   });
 };
 
