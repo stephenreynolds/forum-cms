@@ -1,5 +1,6 @@
 import mockPosts from "../mockdb/posts.json";
-import PostModel from "./post";
+import PostModel, { PostCreateModel } from "./post";
+import { v4 as uuidv4 } from "uuid";
 
 export const getPosts = (): PostModel[] => {
   return mockPosts.posts.map(post => {
@@ -25,4 +26,15 @@ export const getPostById = (id: string): PostModel => {
     title: res.title,
     content: res.content
   };
+};
+
+export const createPost = (post: PostCreateModel) => {
+  mockPosts.posts.push({
+    id: uuidv4(),
+    author: post.author,
+    authorId: post.authorId,
+    created: Date.now(),
+    title: post.title,
+    content: post.content
+  });
 };
