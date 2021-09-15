@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "2cee7b9d-a395-47cb-8103-5a411b4a7467",
+      "username": "mint"
+    },
+    {
+      "id": "9ef6a693-c676-450a-bc28-a248183bf538",
+      "username": "apple"
+    },
+    {
+      "id": "0434d9ef-2a5d-4ae2-b7a0-8daf1d1a4ccd",
+      "username": "raisin"
+    },
+    {
+      "id": "80037359-c223-4f29-af02-0f5113133bbd",
+      "username": "chocolate"
+    },
+    {
+      "id": "081d0dec-88f2-4523-9cdf-698f5c62ae4b",
+      "username": "vanilla"
+    },
+    {
+      "id": "8ba7d5c4-5ad5-40ce-994e-0751cf49c7a0",
+      "username": "caramel"
+    },
+    {
+      "id": "ad62c01e-7a9b-4962-b92f-7f6a3ce6e37f",
+      "username": "cherry"
+    },
+    {
+      "id": "9832afcd-dd88-4f4d-ad20-d44f5091e827",
+      "username": "cheesecake"
+    }
+  ]
+}
