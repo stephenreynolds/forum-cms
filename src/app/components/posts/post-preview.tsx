@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PostModel from "../../common/post";
+import { PostModel } from "../../common/post";
 import Card from "../layout/card";
 import PostHeader from "./post-header";
 import styled from "styled-components";

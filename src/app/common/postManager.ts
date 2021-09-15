@@ -1,5 +1,5 @@
 import mockPosts from "../mockdb/posts.json";
-import PostModel, { PostCreateModel } from "./post";
+import { PostModel, PostCreateModel } from "./post";
 import { v4 as uuidv4 } from "uuid";
 
 export const getPosts = (): PostModel[] => {

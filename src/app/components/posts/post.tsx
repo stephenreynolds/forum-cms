@@ -1,4 +1,4 @@
-import PostModel from "../../common/post";
+import { PostModel } from "../../common/post";
 import PostHeader from "./post-header";
 import Card from "../layout/card";
 import Container from "../layout/container";
