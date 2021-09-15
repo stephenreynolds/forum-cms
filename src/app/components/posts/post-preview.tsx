@@ -9,11 +9,16 @@ const PreviewLink = styled(Link)`
   text-decoration: none;
 `;
 
+const createPostLink = (id: string, title: string) => {
+  const titleText = title.toLowerCase().split(" ").join("_");
+  return `/posts/${id}/${titleText}`;
+};
+
 const PostPreview = (post: PostModel) => {
   return (
     <Card>
       <PostHeader author={post.author} created={post.created} />
-      <PreviewLink to={"/posts/" + post.id}>
+      <PreviewLink to={createPostLink(post.id, post.title)}>
         <h3>{post.title}</h3>
         <p>{post.content}</p>
       </PreviewLink>

@@ -7,10 +7,10 @@ const Routes = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path={["/"]} component={PostFeed} />
-        <Route exact path={["/posts/:id"]} component={Post} />
+        <Route exact path={["/posts/:id/:title?"]} component={Post} />
       </Switch>
     </BrowserRouter>
-  )
+  );
 };
 
 export default Routes;
