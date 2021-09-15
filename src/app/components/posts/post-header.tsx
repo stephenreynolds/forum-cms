@@ -22,10 +22,9 @@ const CreatedTooltip = styled.span`
 type PostHeaderProps = {
   author: string;
   created: Date;
-  title: string;
 };
 
-const PostHeader = ({ author, created, title }: PostHeaderProps) => {
+const PostHeader = ({ author, created }: PostHeaderProps) => {
   return (
     <div>
       <div>
@@ -34,7 +33,6 @@ const PostHeader = ({ author, created, title }: PostHeaderProps) => {
         data-delay-show="1000">{moment(created).fromNow()}</CreatedTooltip>
         <ReactTooltip />
       </div>
-      <h3>{title}</h3>
     </div>
   );
 };

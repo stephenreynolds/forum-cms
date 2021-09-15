@@ -13,3 +13,16 @@ export const getPosts = (): PostModel[] => {
     };
   });
 };
+
+export const getPostById = (id: string): PostModel => {
+  const res = mockPosts.posts.find(post => post.id === id);
+
+  return {
+    id: res.id,
+    author: res.author,
+    authorId: res.authorId,
+    created: new Date(res.created),
+    title: res.title,
+    content: res.content
+  };
+};

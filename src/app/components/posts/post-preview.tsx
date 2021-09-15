@@ -12,8 +12,9 @@ const PreviewLink = styled(Link)`
 const PostPreview = (post: PostModel) => {
   return (
     <Card>
+      <PostHeader author={post.author} created={post.created} />
       <PreviewLink to={"/posts/" + post.id}>
-        <PostHeader author={post.author} created={post.created} title={post.title} />
+        <h3>{post.title}</h3>
         <p>{post.content}</p>
       </PreviewLink>
     </Card>
