@@ -1,4 +1,3 @@
-import mockPosts from "../mockdb/posts.json";
 import { PostModel, PostCreateModel } from "./post";
 import { v4 as uuidv4 } from "uuid";
 
@@ -42,11 +41,4 @@ export const createPost = async (post: PostCreateModel) => {
   };
   localStorage.setItem("posts", JSON.stringify([...posts, createdPost]));
   return createdPost;
-};
-
-export const initMockPosts = () => {
-  const posts = localStorage.getItem("posts");
-  if (!posts) {
-    localStorage.setItem("posts", JSON.stringify(mockPosts));
-  }
 };
