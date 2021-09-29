@@ -14,6 +14,12 @@ interface Props {
   }
 }
 
+const sortByDate = (posts) => {
+  return posts.sort((a,b) => {
+    return +b.created - +a.created;
+  });
+};
+
 const PostFeed = ({ posts, actions }: Props) => {
   useEffect(() => {
     if (!posts || posts.length === 0) {
@@ -27,7 +33,7 @@ const PostFeed = ({ posts, actions }: Props) => {
     <Container maxWidth="640px">
       <NewPostFormPreview />
       {
-        posts && posts.length > 0 && posts.map((post) =>
+        posts && posts.length > 0 && sortByDate(posts).map((post) =>
           <PostPreview key={post.id} id={post.id} author={post.author}
                        authorId={post.authorId} created={post.created}
                        title={post.title} content={post.content} />)

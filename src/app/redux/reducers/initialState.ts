@@ -1,6 +1,4 @@
-const mockPosts = JSON.parse(window.localStorage.getItem("posts"));
-
 export default {
-  posts: mockPosts,
+  posts: [],
   post: {}
 };
