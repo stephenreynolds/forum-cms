@@ -6,8 +6,10 @@ import styled from "styled-components";
 import { RoundedButton } from "../../layout/button";
 import { useState } from "react";
 import { useHistory } from "react-router";
-import { createPost } from "../../../common/postManager";
 import { PostCreateModel } from "../../../common/post";
+import { bindActionCreators } from "redux";
+import { createPost } from "../../../redux/actions/postActions";
+import { connect } from "react-redux";
 
 const StyledForm = styled.form`
   ${Input}, ${TextArea} {
@@ -26,7 +28,13 @@ const SubmitSection = styled.div`
   }
 `;
 
-const NewPostForm = () => {
+interface Props {
+  actions: {
+    createPost: (post: PostCreateModel) => any;
+  };
+}
+
+const NewPostForm = ({ actions }: Props) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const history = useHistory();
@@ -39,7 +47,7 @@ const NewPostForm = () => {
       title: title
     };
 
-    createPost(post);
+    actions.createPost(post);
     history.push("/");
   };
 
@@ -76,4 +84,12 @@ const NewPostForm = () => {
   );
 };
 
-export default NewPostForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: {
+      createPost: bindActionCreators(createPost, dispatch)
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NewPostForm);
