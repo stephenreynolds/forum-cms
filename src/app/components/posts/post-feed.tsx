@@ -1,27 +1,53 @@
-import { useEffect, useState } from "react";
-import { getPosts } from "../../common/postManager";
+import { useEffect } from "react";
 import Container from "../layout/container";
 import PostPreview from "./post-preview";
 import NewPostFormPreview from "./new-post/new-post-form-preview";
+import { bindActionCreators } from "redux";
+import { getPosts } from "../../redux/actions/postActions";
+import { connect } from "react-redux";
+import { PostModel } from "../../common/post";
 
-const PostFeed = () => {
-  const [posts, setPosts] = useState([]);
+interface Props {
+  posts: PostModel[],
+  actions: {
+    getPosts: () => any;
+  };
+}
 
+const PostFeed = ({ posts, actions }: Props) => {
   useEffect(() => {
-    setPosts(getPosts());
-  }, []);
+    if (posts.length === 0) {
+      actions.getPosts().catch(error => {
+        console.log(`Failed to load trades. ${error}`);
+      });
+    }
+  }, [posts, actions]);
 
   return (
     <Container maxWidth="640px">
       <NewPostFormPreview />
       {
         posts && posts.length > 0 && posts.map((post) =>
-          <PostPreview key={post.id} id={post.id} author={post.author} authorId={post.authorId} created={post.created}
-                title={post.title}
-                content={post.content} />)
+          <PostPreview key={post.id} id={post.id} author={post.author}
+                       authorId={post.authorId} created={post.created}
+                       title={post.title} content={post.content} />)
       }
     </Container>
   );
 };
 
-export default PostFeed;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: {
+      getPosts: bindActionCreators(getPosts, dispatch)
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostFeed);

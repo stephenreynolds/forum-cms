@@ -2,8 +2,9 @@ import mockPosts from "../mockdb/posts.json";
 import { PostModel, PostCreateModel } from "./post";
 import { v4 as uuidv4 } from "uuid";
 
-export const getPosts = (): PostModel[] => {
-  return mockPosts.posts.map(post => {
+export const getPosts = async (): Promise<PostModel[]> => {
+  const posts = JSON.parse(localStorage.getItem("posts"));
+  return posts.map(post => {
     return {
       id: post.id,
       author: post.author,
@@ -12,13 +13,12 @@ export const getPosts = (): PostModel[] => {
       title: post.title,
       content: post.content
     };
-  }).sort((a, b) => {
-    return +b.created - +a.created;
   });
 };
 
 export const getPostById = (id: string): PostModel => {
-  const res = mockPosts.posts.find(post => post.id === id);
+  const posts = JSON.parse(localStorage.getItem("posts"));
+  const res = posts.find(post => post.id === id);
 
   return {
     id: res.id,
@@ -30,13 +30,23 @@ export const getPostById = (id: string): PostModel => {
   };
 };
 
-export const createPost = (post: PostCreateModel) => {
-  mockPosts.posts.push({
+export const createPost = async (post: PostCreateModel) => {
+  const posts: PostModel[] = JSON.parse(localStorage.getItem("posts"));
+  const createdPost: PostModel = {
     id: uuidv4(),
     author: post.author,
     authorId: post.authorId,
-    created: Date.now(),
+    created: new Date(),
     title: post.title,
     content: post.content
-  });
+  };
+  localStorage.setItem("posts", JSON.stringify([...posts, createdPost]));
+  return createdPost;
+};
+
+export const initMockPosts = () => {
+  const posts = localStorage.getItem("posts");
+  if (!posts) {
+    localStorage.setItem("posts", JSON.stringify(mockPosts));
+  }
 };

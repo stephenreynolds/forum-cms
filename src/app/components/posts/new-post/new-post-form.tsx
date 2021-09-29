@@ -67,8 +67,8 @@ const NewPostForm = () => {
           <TextArea name="text" placeholder="Text (optional)" value={text} onChange={handleTextChange} />
 
           <SubmitSection>
-            <RoundedButton type="submit" onClick={submit} disabled={!formValid()}>Submit post</RoundedButton>
-            <RoundedButton onClick={cancel}>Cancel</RoundedButton>
+            <RoundedButton type="button" onClick={submit} disabled={!formValid()}>Submit post</RoundedButton>
+            <RoundedButton type="button" onClick={cancel}>Cancel</RoundedButton>
           </SubmitSection>
         </StyledForm>
       </Card>
