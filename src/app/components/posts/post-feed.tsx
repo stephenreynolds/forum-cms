@@ -11,12 +11,12 @@ interface Props {
   posts: PostModel[],
   actions: {
     getPosts: () => any;
-  };
+  }
 }
 
 const PostFeed = ({ posts, actions }: Props) => {
   useEffect(() => {
-    if (posts.length === 0) {
+    if (!posts || posts.length === 0) {
       actions.getPosts().catch(error => {
         console.log(`Failed to load trades. ${error}`);
       });
@@ -38,7 +38,7 @@ const PostFeed = ({ posts, actions }: Props) => {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts
+    posts: state.posts.posts
   };
 };
 

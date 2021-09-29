@@ -16,7 +16,7 @@ export const getPosts = async (): Promise<PostModel[]> => {
   });
 };
 
-export const getPostById = (id: string): PostModel => {
+export const getPostById = async (id: string): Promise<PostModel> => {
   const posts = JSON.parse(localStorage.getItem("posts"));
   const res = posts.find(post => post.id === id);
 
