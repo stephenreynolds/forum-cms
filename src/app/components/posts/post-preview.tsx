@@ -19,7 +19,7 @@ const createPostLink = (id: string, title: string) => {
 
 const PostPreview = (post: PostModel) => {
   return (
-    <Card>
+    <Card canHover>
       <PostHeader author={post.author} created={post.created} />
       <PreviewLink to={createPostLink(post.id, post.title)}>
         <h3>{post.title}</h3>

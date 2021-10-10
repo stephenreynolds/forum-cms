@@ -18,7 +18,7 @@ const StyledForm = styled.form`
 `;
 
 const SubmitSection = styled.div`
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #444;
   padding-top: 0.5em;
   display: flex;
   flex-direction: row-reverse;
@@ -75,7 +75,10 @@ const NewPostForm = ({ actions }: Props) => {
           <TextArea name="text" placeholder="Text (optional)" value={text} onChange={handleTextChange} />
 
           <SubmitSection>
-            <RoundedButton type="button" onClick={submit} disabled={!formValid()}>Submit post</RoundedButton>
+            <RoundedButton type="button" onClick={submit} disabled={!formValid()}
+                           backgroundColor="#ccc" textColor="#333" hoverBackgroundColor="#bbb">
+              Submit post
+            </RoundedButton>
             <RoundedButton type="button" onClick={cancel}>Cancel</RoundedButton>
           </SubmitSection>
         </StyledForm>

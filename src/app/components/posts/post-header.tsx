@@ -4,8 +4,8 @@ import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
 const UserLink = styled(Link)`
-  color: initial;
   text-decoration: none;
+  color: #b0b0b0;
   
   &:hover {
     text-decoration: underline;
@@ -19,6 +19,10 @@ const CreatedTooltip = styled.span`
   }
 `;
 
+const HeaderDiv = styled.div`
+  font-size: 0.75em;
+`;
+
 type PostHeaderProps = {
   author: string;
   created: Date;
@@ -26,14 +30,14 @@ type PostHeaderProps = {
 
 const PostHeader = ({ author, created }: PostHeaderProps) => {
   return (
-    <div>
+    <HeaderDiv>
       <div>
         Posted by <UserLink to={"/user/" + author}>{author}</UserLink> <CreatedTooltip
         data-tip={moment(created).format("llll")} data-effect="solid"
         data-delay-show="1000">{moment(created).fromNow()}</CreatedTooltip>
         <ReactTooltip />
       </div>
-    </div>
+    </HeaderDiv>
   );
 };
 
