@@ -24,7 +24,7 @@ const PostFeed = ({ posts, actions }: Props) => {
   useEffect(() => {
     if (!posts || posts.length === 0) {
       actions.getPosts().catch(error => {
-        console.log(`Failed to load trades. ${error}`);
+        console.log(`Failed to load posts. ${error}`);
       });
     }
   }, [posts, actions]);
